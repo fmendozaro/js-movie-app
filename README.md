@@ -20,9 +20,11 @@ after the `-d` flag inside of the npm `dev` script.
 
 1. Fork this repository to your own github account or your github organization.
 
-1. Clone your fork
+1. Clone your fork locally into your computer.
 
 1. Run `npm install`
+
+1. Run `npm run build`
 
 1. Run `npm run dev` and visit
    [http://localhost:1313/](http://localhost:1313/) in your browser. Open up
@@ -63,7 +65,7 @@ On page load:
 - Display a "loading..." message
 - Make an ajax request to get a listing of all the movies
 - When the initial ajax request comes back, remove the "loading..." message
-  and replace it with html generated from the json response your code
+  and replace it with HTML generated from the json response your code
   receives
 
 Allow users to add new movies
@@ -85,7 +87,7 @@ Allow users to edit existing movies
 Delete movies
 
 - Each movie should have a "delete" button
-- When this button is clicked, your javascript should send a DELETE request
+- When this button is clicked, your javascript should send a `DELETE` request
 
 ### Bonuses
 

@@ -17,7 +17,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.5.2",
     "concurrently": "^3.5.0",
-    "json-server": "^0.13.0",
+    "json-server": "^0.16.1",
     "promise-polyfill": "^6.0.2",
     "webpack": "4.29.6",
     "webpack-cli": "3.3.0",
