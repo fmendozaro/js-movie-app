@@ -1,6 +1,6 @@
 "use strict";
 
-const URL = "https://codeup-movies.firebaseio.com/codeup-movies/fer.json";
+const URL = "https://fma.glitch.me/movies";
 const movie = {title: 'up', rating: 5};
 const options = {
     method: 'POST',
@@ -17,7 +17,11 @@ const API = {
     },
     postMovie: () => {
         fetch(URL, options)
-            .then(/* post was created successfully */)
-            .catch(/* handle errors */);
+            .then(() => {
+                console.log("post was created successfully ");
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 }
