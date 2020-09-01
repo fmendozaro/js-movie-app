@@ -1,24 +1,25 @@
 "use strict";
 
-const URL = "https://fma.glitch.me/movies";
-const movie = {title: 'up', rating: 5};
-const options = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(movie),
-};
+const URL = "https://codeup-json-server.glitch.me/movies";
 
 const API = {
     getMovies: () => {
         return fetch(URL)
             .then(response => response.json());
     },
-    postMovie: () => {
+    postMovie: (movie) => {
+
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+
         fetch(URL, options)
             .then(() => {
-                console.log("post was created successfully ");
+                console.log("movie was created successfully ");
             })
             .catch(error => {
                 console.error(error);
