@@ -4,11 +4,10 @@ const URL = "https://codeup-json-server.glitch.me/movies";
 
 const API = {
     getMovies: () => {
-        return fetch(URL)
-            .then(response => response.json());
+        return fetch(URL).then(response => response.json());
     },
     getMovie: id => {
-        return fetch(`${id}`)
+        return fetch(`${URL}/${id}`).then( response => response.json());
     },
     postMovie: (movie) => {
 
@@ -23,6 +22,24 @@ const API = {
         fetch(URL, options)
             .then(() => {
                 console.log("movie was created successfully ");
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    },
+    editMovie: (movie) => {
+
+        let options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+
+        fetch(URL, options)
+            .then(() => {
+                console.log("movie was edited successfully ");
             })
             .catch(error => {
                 console.error(error);
