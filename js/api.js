@@ -19,7 +19,7 @@ const API = {
             body: JSON.stringify(movie),
         };
 
-        fetch(URL, options)
+        return fetch(URL, options)
             .then(() => {
                 console.log("movie was created successfully");
             })
