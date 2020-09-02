@@ -7,6 +7,9 @@ const API = {
         return fetch(URL)
             .then(response => response.json());
     },
+    getMovie: id => {
+        return fetch(`${id}`)
+    },
     postMovie: (movie) => {
 
         let options = {
