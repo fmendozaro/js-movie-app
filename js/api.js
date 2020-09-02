@@ -7,7 +7,7 @@ const API = {
         return fetch(URL).then(response => response.json());
     },
     getMovie: id => {
-        return fetch(`${URL}/${id}`).then( response => response.json());
+        return fetch(`${URL}/${id}`).then(response => response.json());
     },
     postMovie: (movie) => {
 
@@ -21,7 +21,7 @@ const API = {
 
         fetch(URL, options)
             .then(() => {
-                console.log("movie was created successfully ");
+                console.log("movie was created successfully");
             })
             .catch(error => {
                 console.error(error);
@@ -37,9 +37,25 @@ const API = {
             body: JSON.stringify(movie),
         };
 
-        fetch(URL, options)
+        return fetch(`${URL}/${movie.id}`, options)
             .then(() => {
-                console.log("movie was edited successfully ");
+                console.log("movie was edited successfully");
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    },
+    deleteMovie: id => {
+        let options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+
+        return fetch(`${URL}/${id}`, options)
+            .then(() => {
+                console.log("movie was deleted successfully");
             })
             .catch(error => {
                 console.error(error);
