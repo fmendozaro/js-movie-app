@@ -38,7 +38,7 @@ http://localhost:1313, **not** from IntelliJ's web server, or by dragging the
 file(s) into chrome. As you make changes to your source files, all you need to
 do is save the file, and the website will be live reloaded.
 
-Take a look at the `src/index.js` file to get started. You will notice it has
+Take a look at the `src/main.js` file to get started. You will notice it has
 examples of importing and requiring separate javascript files. Regardless of
 which you choose to use, you should pick one and use it throughout your code
 base, don't mix and match the two.

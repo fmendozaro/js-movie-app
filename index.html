@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fer's MDB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/pacman.css">
+</head>
+<body>
+
+<main class="container">
+
+    <h1>Fer's Movie Database</h1>
+
+    <h3>Add movie</h3>
+
+    <form id="post-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="title" class="form-control" id="title" aria-describedby="" placeholder="Enter Title">
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating1" value="1" checked>
+            <label class="form-check-label" for="rating1">
+                1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating2" value="2" checked>
+            <label class="form-check-label" for="rating2">
+                2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating3" value="3" checked>
+            <label class="form-check-label" for="rating3">
+                3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating4" value="4" checked>
+            <label class="form-check-label" for="rating4">
+                4
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="rating" id="rating5" value="5" checked>
+            <label class="form-check-label" for="rating5">
+                5
+            </label>
+        </div>
+        <button id="submit-movie-btn" type="submit" class="btn btn-primary">Add Movie</button>
+    </form>
+
+    <div id="movie-cards" class="card-columns"></div>
+</main>
+
+<div id="wrapper">
+    <div id="overlay">
+        <div id="inner">
+            <h3>Loading...</h3>
+            <br>
+            <div class='uil-pacman-css' style='-webkit-transform:scale(1)'><div><div></div></div><div><div></div></div><div><div></div></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Movie Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="title" class="form-control" id="title-edit" aria-describedby="" placeholder="Enter Title">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating-edit" value="1" checked>
+                        <label class="form-check-label" for="rating1">
+                            1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating-edit" value="2" checked>
+                        <label class="form-check-label" for="rating2">
+                            2
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating-edit" value="3" checked>
+                        <label class="form-check-label" for="rating3">
+                            3
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating-edit" value="4" checked>
+                        <label class="form-check-label" for="rating4">
+                            4
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating-edit" value="5" checked>
+                        <label class="form-check-label" for="rating5">
+                            5
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="movie-id">
+                <button type="button" class="btn btn-success" id="submit-changes-btn">Save changes</button>
+                <button type="button" class="btn btn-danger" id="delete-movie-btn" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
