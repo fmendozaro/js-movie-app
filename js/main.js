@@ -16,15 +16,16 @@ function loadMovies(){
     API.getMovies().then((movies) => {
         $("#wrapper").fadeOut();
         $("#movie-cards").empty();
-        movies.forEach(({title, rating, id}) => {
-            $("#movie-cards").append(`<div class="card">
-            <img src="https://m.media-amazon.com/images/M/MV5BMTYzNDQyMzkyMV5BMl5BanBnXkFtZTgwMTE3MTI4MTE@._V1_SY1000_CR0,0,752,1000_AL_.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">${title}</h5>
-                <p class="card-text">${rating}</p>
-                <button data-id="${id}" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editModal">Edit</button>
-            </div>
-        </div>`);
+        movies.forEach(({title, rating, id, poster}) => {
+            let html = `<div class="card">
+                <img src="${poster}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text">${rating}</p>
+                    <button data-id="${id}" class="btn btn-success edit-btn" data-toggle="modal" data-target="#editModal">Edit</button>
+                </div>
+            </div>`;
+            $("#movie-cards").append(html);
         });
 
         $(".edit-btn").click(function(e){
@@ -48,11 +49,25 @@ function loadMovies(){
 
 $("#submit-movie-btn").click(function(e){
     e.preventDefault();
+
     let movie = {
         title: $("#title").val(),
         rating: $("input[name='rating']:checked").val()
     }
-    API.postMovie(movie).then( () => loadMovies());
+
+    API.getMovieInfo(movie.title).then(data => {
+        movie.poster = data.Poster;
+        movie.year = data.Year;
+        movie.genre = data.Genre;
+        movie.director = data.Director;
+        movie.plot = data.Plot;
+        movie.actors = data.Actors;
+        API.postMovie(movie).then( () => loadMovies());
+    }).catch( errors  => {
+        console.error(errors)
+        API.postMovie(movie).then( () => loadMovies());
+    });
+
 });
 
 $("#submit-changes-btn").click(function(e){

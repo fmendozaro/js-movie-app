@@ -1,6 +1,7 @@
 "use strict";
 
 const URL = "https://codeup-json-server.glitch.me/movies";
+const omdbURL = `http://www.omdbapi.com/?apikey=${omdbKey}&`
 
 const API = {
     getMovies: () => {
@@ -60,5 +61,9 @@ const API = {
             .catch(error => {
                 console.error(error);
             });
+    },
+    getMovieInfo: title => {
+        return fetch(`${omdbURL}t=${title}`)
+            .then(response => response.json())
     }
 }
